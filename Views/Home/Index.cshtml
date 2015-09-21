@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <meta name="google-signin-client_id" content="1018025622794-ivbej55rkt0rtcb4j05ce9h16rg6vk0u.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+    
+    <div class="g-signin2" data-onsuccess="onGoogleSignIn"></div>
+
+    <script>
+        window.onGoogleSignIn = function (user) {
+            var token = user.getAuthResponse().id_token;
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', '/Home/SignIn');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function (data) {
+                var response = data.currentTarget.response;
+                alert(response);
+            };
+            xhr.send('token=' + token);
+        };
+    </script>
+</body>
+</html>
