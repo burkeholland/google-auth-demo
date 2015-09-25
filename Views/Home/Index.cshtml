@@ -11,6 +11,7 @@
     <title>Index</title>
     <meta name="google-signin-client_id" content="1018025622794-ivbej55rkt0rtcb4j05ce9h16rg6vk0u.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="~/wwwroot/lib/everlive/min/everlive.all.min.js"></script>
 </head>
 <body>
     
@@ -18,17 +19,17 @@
 
     <script>
         window.onGoogleSignIn = function (user) {
-            var token = user.getAuthResponse().id_token;
+            var token = user.wc.access_token,
+                el = new Everlive('5tnum1NuePyeHNwk');
 
-            var xhr = new XMLHttpRequest();
-
-            xhr.open('POST', '/Home/SignIn');
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onload = function (data) {
-                var response = data.currentTarget.response;
-                alert(response);
-            };
-            xhr.send('token=' + token);
+            el.authentication.loginWithGoogle(token,
+                function () {
+                    alert("Logged In!");
+                },
+                function (e) {
+                    alert("Error: " + e);
+                }
+            );
         };
     </script>
 </body>

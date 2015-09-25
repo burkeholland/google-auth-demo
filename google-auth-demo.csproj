@@ -92,8 +92,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
+    <Content Include="wwwroot\lib\everlive\.gitattributes" />
+    <Content Include="wwwroot\lib\everlive\min\everlive.all.min.js" />
+    <Content Include="wwwroot\lib\everlive\src\everlive.all.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -107,12 +111,17 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include=".bowerrc" />
+    <Content Include="bower.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="wwwroot\lib\everlive\.bower.json" />
+    <Content Include="wwwroot\lib\everlive\bower.json" />
+    <Content Include="wwwroot\lib\everlive\src\everlive.all.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

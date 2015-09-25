@@ -1,0 +1,9 @@
+{
+  "name": "ASP.NET",
+  "private": true,
+  "directory": "Scripts",
+  "dependencies": {},
+  "devDependencies": {
+    "everlive": "~1.5.6"
+  }
+}
